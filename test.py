@@ -1,6 +1,10 @@
 import re, requests, sys
 from bs4 import BeautifulSoup, NavigableString
 import bleach
+import summaly
+
+t = " "
+
 def strip_tags(data,inv):
 
 	pattern = ['&lt','&gt','/[.*/]','html','body',';',':','/']
@@ -25,13 +29,21 @@ def strip_tags(data,inv):
 
 			p2 = re.sub(pat,"",p2)
 
-	        print p2
+	        build_text(p2)
+
+
+def build_text(txt):
+	global t  
+	t = t + " " + txt 
+
 
 def main():
+	global t
 	r = requests.get("http://en.wikipedia.org/wiki/google")
 	data= r.text
 	inv = ['a','span','h2','img','sup','i','b']
         soup = BeautifulSoup(data)
 	strip_tags(data,inv)
+	summaly.word(t)
 if __name__=='__main__':
         main()
