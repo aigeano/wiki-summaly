@@ -1,7 +1,3 @@
-#Author : Sagar Pandey
-#email : sagarinocean@gmail.com
-#Date: 27th July, 2014
-
 import re, requests, sys
 from bs4 import BeautifulSoup, NavigableString
 import bleach
