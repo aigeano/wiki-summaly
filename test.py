@@ -39,11 +39,11 @@ def build_text(txt):
 
 def main():
 	global t
-	r = requests.get("http://en.wikipedia.org/wiki/google")
+	r = requests.get("http://en.wikipedia.org/wiki/facebook")
 	data= r.text
 	inv = ['a','span','h2','img','sup','i','b']
         soup = BeautifulSoup(data)
 	strip_tags(data,inv)
-	summaly.word(t)
+	summaly.summarize(t)
 if __name__=='__main__':
         main()
